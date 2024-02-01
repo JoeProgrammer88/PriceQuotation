@@ -24,6 +24,7 @@ namespace PriceQuotation.Models
         /// </summary>
         [Display(Name = "Discount Amount")]
         [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public double DiscountAmount 
         { 
             get

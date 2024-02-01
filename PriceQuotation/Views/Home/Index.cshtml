@@ -13,7 +13,15 @@
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Subtotal" class="control-label"></label>
-                <input asp-for="Subtotal" class="form-control" />
+                @if(Model.Subtotal == 0)
+                {
+                    <input asp-for="Subtotal" value="" class="form-control" />
+                }
+                else
+                {
+                    <input asp-for="Subtotal" class="form-control" />
+                }
+
             </div>
             <div class="form-group">
                 <label asp-for="Discount" class="control-label"></label>
@@ -21,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="DiscountAmount" class="control-label"></label>
-                <input disabled asp-for="DiscountAmount" class="form-control" />
+                <input disabled value='@Model.DiscountAmount.ToString("c")' asp-for="DiscountAmount" class="form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="Total" class="control-label"></label>
