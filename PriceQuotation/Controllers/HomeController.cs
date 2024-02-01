@@ -13,9 +13,24 @@ namespace PriceQuotation.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            PriceQuote quote = new();
+            return View(quote);
+        }
+
+        [HttpPost]
+        public IActionResult Index(PriceQuote quote)
+        {
+            if (ModelState.IsValid)
+            {
+                // Return model with the results calculated
+                return View(quote);
+            }
+
+            // Return the model with the error messages
+            return View(quote);
         }
 
         public IActionResult Privacy()
